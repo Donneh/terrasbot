@@ -4,6 +4,8 @@ const apiKey = process.env.METEOSOURCE_API_KEY;
 async function getPlaceId(city) {
     let locationResponse = await fetch(baseUrl + `/find_places?text=${city}&key=${apiKey}`);
     let location = await locationResponse.json();
+
+    console.log("Location: ", location);
     return location;
 }
 

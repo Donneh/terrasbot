@@ -17,14 +17,16 @@ export async function execute(interaction) {
     let minutes = today.getMinutes();
     let rn = hours + ":" + minutes;
 
-    if(hours >= 5 && hours < 12 && weather.temperature < 20) {
-        await interaction.reply(`Goeiemorgen! Het is nu ${rn}, en buiten is het ${weather.temperature} graden. Dat word geen terras vandaag...`);
-    } else if(hours >= 5 && hours < 12 && weather.temperature >= 20) {
-        await interaction.reply(`Goeiemorgen! Het is nu ${rn}, en buiten is het ${weather.temperature} graden. Tijd voor terras!`);
-    } else if(hours >= 12 && hours < 18 && weather.temperature < 20) {
-        await interaction.reply(`Goeiemiddag! Het is nu ${rn} uur, en buiten is het ${weather.temperature} graden. Dat word geen terras vandaag...`);
-    } else if(hours >= 12 && hours < 18 && weather.temperature >= 20) {
-        await interaction.reply(`Goeiemiddag! Het is nu ${rn} uur, en buiten is het ${weather.temperature} graden. Tijd voor terras!`);
+    let city = interaction.options.getString('city');
+
+    if(hours >= 5 && hours < 12 && weather.temperature < 18) {
+        await interaction.reply(`Goeiemorgen! Het is nu ${rn}, en in ${city} is het ${weather.temperature} graden. Dat wordt geen terras vandaag...`);
+    } else if(hours >= 5 && hours < 12 && weather.temperature >= 18) {
+        await interaction.reply(`Goeiemorgen! Het is nu ${rn}, en in ${city} is het ${weather.temperature} graden. Tijd voor terras!`);
+    } else if(hours >= 12 && hours < 18 && weather.temperature < 18) {
+        await interaction.reply(`Goeiemiddag! Het is nu ${rn} uur, en in ${city} is het ${weather.temperature} graden. Dat wordt geen terras vandaag...`);
+    } else if(hours >= 12 && hours < 18 && weather.temperature >= 18) {
+        await interaction.reply(`Goeiemiddag! Het is nu ${rn} uur, en in ${city} is het ${weather.temperature} graden. Tijd voor terras!`);
     } else {
         await interaction.reply(`Moet jij nog niet je bed in? Het is nu ${rn} uur.`);
     }
