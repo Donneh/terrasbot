@@ -1,15 +1,14 @@
 {
-  "name": "Henk bot",
-  "version": "1.0.0",
-  "description": "Henk bot",
-  "main": "bot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "terrasbot",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
   },
-  "author": "Maarten Nieuwelink",
-  "license": "ISC",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "request": "^2.88.0"
+    "discord.js": "^14.14.1"
   }
 }
